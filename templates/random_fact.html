@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fact and Weather</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333333;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        p {
+            color: #666666;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .weather-info {
+            margin-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+        .error-message {
+            color: #ff0000;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Fact</h1>
+        <p>{{ fact }}</p>
+    
+        <div class="weather-info">
+            <h1>Weather for Dublin</h1>
+            {% if weather_data %}
+                <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
+                <p><strong>Humidity:</strong> {{ weather_data.humidity }}%</p>
+                <p><strong>Weather:</strong> {{ weather_data.weather }}</p>
+            {% else %}
+                <p class="error-message">Failed to fetch weather data</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
